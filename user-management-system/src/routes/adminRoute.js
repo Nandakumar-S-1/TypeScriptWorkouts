@@ -1,0 +1,14 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var express_1 = require("express");
+var adminController_1 = require("../controller/adminController");
+var auth_1 = require("../middleware/auth");
+var router = (0, express_1.Router)();
+router.get('/login', adminController_1.default.loadLoginPage);
+router.post('/login', adminController_1.default.login);
+router.get('/', auth_1.default.adminAuth, adminController_1.default.loadDashboard);
+router.patch('/block-user/:id', auth_1.default.adminAuth, adminController_1.default.blockUser);
+router.post('/logout', auth_1.default.adminAuth, adminController_1.default.logout);
+router.get('/edit-user/:id', auth_1.default.adminAuth, adminController_1.default.loadEditUser);
+router.put('/edit-user/:id', auth_1.default.adminAuth, adminController_1.default.editUser);
+exports.default = router;

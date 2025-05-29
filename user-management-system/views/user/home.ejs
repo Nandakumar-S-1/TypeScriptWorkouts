@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Home</title>
+  <style>
+    .container {
+      max-width: 600px;
+      margin: 50px auto;
+      padding: 30px;
+      text-align: center;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+    }
+
+    .details {
+      margin-top: 20px;
+      text-align: left;
+    }
+
+    .logout-btn {
+      margin-top: 30px;
+      padding: 10px 20px;
+      background-color: crimson;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .logout-btn:hover {
+      background-color: darkred;
+    }
+
+    .action-btn {
+      background-color: aqua;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>Welcome, <%= user.name %>!</h1>
+
+    <div class="details">
+      <p><strong>Email:</strong>
+        <%= user.email %>
+      </p>
+      <p><strong>Phone:</strong>
+        <%= user.phone %>
+      </p>
+    </div>
+    <form action="/logout" method="POST">
+      <button type="submit" class="logout-btn">Logout</button>
+    </form>
+  </div>
+
+</body>
+
+</html>

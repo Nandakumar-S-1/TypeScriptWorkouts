@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Sign Up</title>
+  <link rel="stylesheet" href="/public/css/style.css"> <!-- Optional -->
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f2f2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .signup-container {
+      background: white;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      width: 400px;
+    }
+
+    .signup-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .signup-container input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0 5px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .error {
+      color: red;
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+
+    .signup-container button {
+      width: 100%;
+      padding: 10px;
+      background: #4CAF50;
+      border: none;
+      color: white;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .signup-container button:hover {
+      background: #45a049;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="signup-container">
+    <h2>Sign Up</h2>
+    <form id="signupForm" action="/signup" method="POST" onsubmit="return validateForm()">
+      <input type="text" id="name" name="name" placeholder="Name" />
+      <div id="nameError" class="error"></div>
+
+      <input type="email" id="email" name="email" placeholder="Email" />
+      <div id="emailError" class="error"></div>
+
+      <input type="text" id="phone" name="phone" placeholder="Phone" />
+      <div id="phoneError" class="error"></div>
+
+      <input type="password" id="password" name="password" placeholder="Password" />
+      <div id="passwordError" class="error"></div>
+
+      <button type="submit">Register</button>
+    </form>
+  </div>
+
+  <!-- <script>
+    const signupForm = document.getElementById('signupForm');
+
+    signupForm.addEventListener('submit', async (e) => {
+      e.preventDefault(); // prevent normal form submit
+
+      // Clear old errors
+      document.getElementById('nameError').textContent = '';
+      document.getElementById('emailError').textContent = '';
+      document.getElementById('phoneError').textContent = '';
+      document.getElementById('passwordError').textContent = '';
+
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const password = document.getElementById('password').value.trim();
+
+      let hasError = false;
+
+      if (!name) {
+        document.getElementById('nameError').textContent = 'Name is required';
+        hasError = true;
+      }
+      if (!email) {
+        document.getElementById('emailError').textContent = 'Email is required';
+        hasError = true;
+      }
+      if (!phone) {
+        document.getElementById('phoneError').textContent = 'Phone is required';
+        hasError = true;
+      }
+      if (!password) {
+        document.getElementById('passwordError').textContent = 'Password is required';
+        hasError = true;
+      }
+
+      if (hasError) {
+        return;
+      }
+
+      try {
+        const response = await fetch('/signup', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ name, email, phone, password })
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+          // Registration success
+          alert(data.message);  // ✅ show success message from backend
+          window.location.href = '/';
+        } else {
+          // Registration failed
+          alert(data.message);  // ✅ show error message from backend
+        }
+      } catch (error) {
+        console.error('Error during signup:', error);
+        alert('Something went wrong. Please try again.');
+      }
+
+    });
+  </script> -->
+
+</body>
+
+</html>
