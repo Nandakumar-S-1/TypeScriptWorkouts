@@ -51,7 +51,9 @@ let signup = async(req:Request,res:Response):Promise<void>=>{
 
         if(userData){
             req.session.user =userData.id
-            res.status(200).json({success:true,message:"registration succesful"})
+            res.redirect('/');
+
+            // res.status(200).json({success:true,message:"registration succesful"})
         }else{
         res.status(500).json({ success: false, message: "Registration failed" });
         }
@@ -97,7 +99,7 @@ let login = async(req:Request,res:Response,next:NextFunction):Promise<void>=>{
         }
 
         req.session.user=user.id
-        res.redirect('/home')
+        res.redirect('/')
         // res.json({success:true,message:'Login Succesful'})
 
     } catch (error) {

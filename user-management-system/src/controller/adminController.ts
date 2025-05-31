@@ -14,7 +14,7 @@ import * as bcrypt from "bcrypt";
 
 let loadLoginPage =async (req:Request,res:Response)=>{
     try {
-        return res.render("adminLogin")
+        return res.render("adminLogin", { message: null });
     } catch (error) {
         console.log(error);
     }
@@ -32,7 +32,8 @@ let login = async (req:Request,res:Response):Promise<void>=>{
                     res.status(403).json({success:false,message:"Access to this page is limited, only admins are allowed"})
                 }else{
                     req.session.user =userData.id;
-                    res.status(200).json({success:true})
+                    res.redirect("/admin")
+                    // res.status(200).json({success:true})
                 }
             }
         }
