@@ -1,0 +1,24 @@
+// interface Todo{
+//     title:string
+// }
+// let todo :Readonly<Todo>={
+//     title:"Do the task"
+// }
+// todo.title='Do eat at 9 am'
+
+///////////////////////////////
+
+// type User ={
+//     readonly _id:string,
+//     name:string,
+//     isActive:boolean
+// }
+
+// let newUser :User ={
+//     name:"Aswathy",
+//     isActive:false,
+//     _id:"123"
+// }
+
+// newUser.name = "aswathy sudu"
+// newUser._id ="111"

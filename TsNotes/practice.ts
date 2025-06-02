@@ -39,4 +39,28 @@
 //     return message
 // }
 // greet(1)
-/////////////////////////
+// /////////////////////////read only. Constructs a type with all properties of Type set to readonly, meaning the properties of the constructed type cannot be reassigned.
+
+// interface Todo{
+//     title:string;
+// }
+// let todo :Readonly<Todo> ={
+//     title:"Do Leetcode"
+// }
+
+// todo.title="do Typing task"
+
+// //Cannot assign to 'title' because it is a read-only property.
+
+//////////////////optional parameters///////////////////////
+// function demo(num :number){
+//     return num*num
+// }
+// demo()
+
+//-------------
+
+// function demo(num?:number ):number{
+//     return (num ??0 )*( num ?? 0) 
+// }
+// demo(1)
