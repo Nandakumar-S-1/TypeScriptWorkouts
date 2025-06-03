@@ -1,0 +1,219 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #425a45, #2b305c);
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    max-width: 700px;
+    width: 90%;
+    margin: 20px;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.container:hover {
+    transform: translateY(-5px);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+    color: #555;
+    font-size: 1.5rem;
+    margin: 20px 0;
+}
+
+.input-group {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+input[type="number"] {
+    flex: 1;
+    padding: 12px;
+    font-size: 1rem;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+input[type="number"]:focus {
+    border-color: #6e48aa;
+    box-shadow: 0 0 5px rgba(110, 72, 170, 0.3);
+}
+
+.operations {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.op-btn {
+    padding: 12px 20px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+.op-btn[data-op="add"] { background-color: #3498db; color: white; }
+.op-btn[data-op="sub"] { background-color: #e74c3c; color: white; }
+.op-btn[data-op="mul"] { background-color: #f1c40f; color: white; }
+.op-btn[data-op="div"] { background-color: #2ecc71; color: white; }
+.op-btn[data-op="mod"] { background-color: #e67e22; color: white; }
+
+.op-btn:hover {
+    filter: brightness(110%);
+    transform: scale(1.05);
+}
+
+.op-btn:active {
+    transform: scale(0.95);
+}
+
+.calc-btn {
+    width: auto;
+    padding: 12px 30px;
+    font-size: 1.1rem;
+    background-color: #6e48aa;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+.calc-btn:hover {
+    background-color: #9b59b6;
+    transform: translateY(-2px);
+}
+
+.calc-btn:active {
+    transform: translateY(0);
+}
+
+.result {
+    text-align: center;
+    color: #2ecc71;
+    font-size: 1.5rem;
+    margin: 15px 0;
+    animation: fadeIn 0.5s ease;
+}
+
+.error {
+    text-align: center;
+    color: #e74c3c;
+    font-size: 1.5rem;
+    margin: 15px 0;
+    animation: fadeIn 0.5s ease;
+}
+
+.history-toggle {
+    width: auto;
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #34495e;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px auto;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+.history-toggle i {
+    margin-right: 8px;
+}
+
+.history-toggle:hover {
+    background-color: #2c3e50;
+    transform: translateY(-2px);
+}
+
+.history-toggle:active {
+    transform: translateY(0);
+}
+
+.go-back-btn {
+    width: auto;
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #6e48aa;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px auto;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+.go-back-btn i {
+    margin-right: 8px;
+}
+
+.go-back-btn:hover {
+    background-color: #9b59b6;
+    transform: translateY(-2px);
+}
+
+.go-back-btn:active {
+    transform: translateY(0);
+}
+
+.history-container {
+    margin-top: 20px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    padding: 15px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    font-size: 1rem;
+    color: #333;
+    transition: background-color 0.3s ease;
+}
+
+li:hover {
+    background: #f1f1f1;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}

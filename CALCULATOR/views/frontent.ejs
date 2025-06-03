@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div id="calculatorView">
+            <h1>Calculator</h1>
+            <form id="calcForm" method="POST" action="/calculate">
+                <div class="input-group">
+                    <input type="number" name="num1" placeholder="First Number" step="any" >
+                    <input type="number" name="num2" placeholder="Second Number" step="any" >
+                </div>
+                <input type="hidden" name="operation" id="operation" value="">
+                <div class="operations">
+                    <button type="button" class="op-btn" data-op="add">+</button>
+                    <button type="button" class="op-btn" data-op="sub">-</button>
+                    <button type="button" class="op-btn" data-op="mul">×</button>
+                    <button type="button" class="op-btn" data-op="div">÷</button>
+                    <button type="button" class="op-btn" data-op="mod">%</button>
+                </div>
+                <button type="submit" class="calc-btn">Calculate</button>
+            </form>
+
+            <% if (result !== null) { %>
+                <h3 class="result">Result: <%= result %></h3>
+            <% } %>
+            <% if (error) { %>
+                <h3 class="error"><%= error %></h3>
+            <% } %>
+
+            <button class="history-toggle" onclick="showHistory()">
+                <i class="fas fa-history"></i> Show History
+            </button>
+        </div>
+
+        <div class="history-container" id="historyView" style="display: none;">
+            <h2>Calculation History</h2>
+            <ul>
+                <% CalcHistory.forEach(calc => { %>
+                    <li>
+                        <%= calc.firstNumber %> <%= calc.operation %> <%= calc.secondNumber %> = <%= calc.output %>
+                        (<%- new Date(calc.createdAt).toLocaleString() %>)
+                    </li>
+                <% }); %>
+            </ul>
+            <button class="go-back-btn" onclick="showCalculator()">
+                <i class="fas fa-arrow-left"></i> Go Back
+            </button>
+        </div>
+    </div>
+
+    <script>
+        function showHistory() {
+            document.getElementById('calculatorView').style.display = 'none';
+            document.getElementById('historyView').style.display = 'block';
+        }
+
+        function showCalculator() {
+            document.getElementById('historyView').style.display = 'none';
+            document.getElementById('calculatorView').style.display = 'block';
+        }
+
+        document.querySelectorAll('.op-btn').forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                const form = document.getElementById('calcForm');
+                const operation = button.getAttribute('data-op');
+                document.getElementById('operation').value = operation;
+                if (form.checkValidity()) {
+                    form.submit();
+                } else {
+                    form.reportValidity();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
