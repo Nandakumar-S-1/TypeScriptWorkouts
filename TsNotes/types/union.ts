@@ -45,3 +45,27 @@
 // //for mixed array it should be 
 
 // let cod : (string|number) [] =[101,"202"]
+
+
+/////////////
+
+
+// function sun<T extends number>(arr:T[]):number{
+//     let total=0
+//     for(let i=0;i<arr.length;i++){
+//         total+=arr[i]
+//     }
+//     return total
+// }
+
+// const result = sun([5, 10, 15, 20]);
+// console.log(result); 
+
+
+//////////////////const ab = [{ a: 3 }, { a: 3 }, { a: 3 }, { a: 3 }, { a: 3 }];
+
+type item={a:number}
+let ab:item[]=[{ a: 3 }, { a: 3 }, { a: 3 }, { a: 3 }, { a: 3 }];
+let sum=0
+ab.forEach(v=>sum+=v.a)
+console.log(sum)

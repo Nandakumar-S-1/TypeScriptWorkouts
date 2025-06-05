@@ -1,6 +1,6 @@
 //type keyword is used to create custom types
 
-type Student={
+type STUDENT={
     id:number
     name:string
     age:number
@@ -8,10 +8,10 @@ type Student={
     isPassed?:boolean
 }
 
-function data(st1:Student){
+function DA(st1:STUDENT){
     return `${st1.name},${st1.age}`
 }
-data({id:1,name:"Ashika",age:22})
-console.log(data({id:1,name:"Ashika",age:22}));
+DA({id:1,name:"Ashika",age:22})
+console.log(DA({id:1,name:"Ashika",age:22}));
 
 //here i created a new type just like number,string, boolean etc, which is  Student
