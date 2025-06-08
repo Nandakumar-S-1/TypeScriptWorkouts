@@ -64,6 +64,9 @@
 
 //////////////////const ab = [{ a: 3 }, { a: 3 }, { a: 3 }, { a: 3 }, { a: 3 }];
 
+
+
+
 type item={a:number}
 let ab:item[]=[{ a: 3 }, { a: 3 }, { a: 3 }, { a: 3 }, { a: 3 }];
 let sum=0
