@@ -1,6 +1,6 @@
 var task = {
     name: "Typing task",
     description: "Do it before 10  am",
-    completed: false
+    completed: true
 };
 console.log(task);
