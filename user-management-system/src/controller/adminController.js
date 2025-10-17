@@ -50,7 +50,7 @@ var bcrypt = require("bcrypt");
 var loadLoginPage = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     return __generator(this, function (_a) {
         try {
-            return [2 /*return*/, res.render("adminLogin")];
+            return [2 /*return*/, res.render("adminLogin", { message: null })];
         }
         catch (error) {
             console.log(error);
@@ -78,7 +78,8 @@ var login = function (req, res) { return __awaiter(void 0, void 0, void 0, funct
                     }
                     else {
                         req.session.user = userData.id;
-                        res.status(200).json({ success: true });
+                        res.redirect("/admin");
+                        // res.status(200).json({success:true})
                     }
                 }
                 _b.label = 3;

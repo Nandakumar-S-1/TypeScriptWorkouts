@@ -105,7 +105,8 @@ var signup = function (req, res) { return __awaiter(void 0, void 0, void 0, func
                 userData = _b.sent();
                 if (userData) {
                     req.session.user = userData.id;
-                    res.status(200).json({ success: true, message: "registration succesful" });
+                    res.redirect('/');
+                    // res.status(200).json({success:true,message:"registration succesful"})
                 }
                 else {
                     res.status(500).json({ success: false, message: "Registration failed" });
@@ -163,7 +164,7 @@ var login = function (req, res, next) { return __awaiter(void 0, void 0, void 0,
                     return [2 /*return*/];
                 }
                 req.session.user = user.id;
-                res.redirect('/home');
+                res.redirect('/');
                 return [3 /*break*/, 4];
             case 3:
                 error_3 = _b.sent();
